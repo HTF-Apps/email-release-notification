@@ -19,12 +19,12 @@ async function prepareMessage(recipients, lists) {
   const ownerName = ownerResponse.data.name;
 
   // Templates
-  const subject = `${repoName} ${releaseVersion} [${releaseName}] released!`;
+  const subject = `${repoName} ${releaseVersion} [${releaseName}] ${((release.prerelease == true) ? 'pre-' : '')}released!`;
   const footer = `\n\nRegards,\n\nThe ${ownerName} team`;
   const header = `[${repoName}](${repoURL})${repoDescription} reached it's [${releaseVersion}](${releaseURL}) version.`;
 
-  //const releaseBody = converter.makeHtml(`${header}\n\n${release.body}${footer}`);
-  const releaseBody = converter.makeHtml(`${header}\n\n${JSON.stringify(release)}${footer}`);
+  const releaseBody = converter.makeHtml(`${header}\n\n${release.body}${footer}`);
+  //const releaseBody = converter.makeHtml(`${header}\n\n${JSON.stringify(release)}${footer}`);
 
   const sender = process.env.SENDER_EMAIL;
 
