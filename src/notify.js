@@ -24,7 +24,7 @@ async function prepareMessage(recipients, lists) {
   const header = `[${repoName}](${repoURL})${repoDescription} reached it's [${releaseVersion}](${releaseURL}) version.`;
 
   //const releaseBody = converter.makeHtml(`${header}\n\n${release.body}${footer}`);
-  cost releaseBody = converter.makeHtml(JSON.stringify(release));
+  const releaseBody = converter.makeHtml(`${header}\n\n${JSON.stringify(release)}${footer}`);
 
   const sender = process.env.SENDER_EMAIL;
 
