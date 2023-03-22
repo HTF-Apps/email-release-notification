@@ -34,8 +34,8 @@ async function prepareMessage(recipients, lists) {
       email: sender,
     },
     to: sender,
-    //cc: lists,
-    //bcc: recipients,
+    cc: lists,
+    bcc: recipients,
     subject,
     html: releaseBody,
   };
